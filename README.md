@@ -1,23 +1,24 @@
-# A Walk in the Park
+# The thing
 
-The prettiest text adventure you'll ever play.
+The scariest text adventure you'll ever play.
 
 ## About
 
-Just another ordinary day, you decide to take a walk in the park. In classic
-text adventure tradition, you are given free reign to explore the world around
-you, and interact with everything you can see. The story unfolds naturally as a
-work of interactive fiction. "A Walk in the Park" is a beautifully orchestrated
-tale of peace and quiet.
+In remote Antarctica, a group of American research scientists are disturbed
+at their base camp by a helicopter shooting at a sled dog. When they take in
+the dog, it brutally attacks both human beings and canines in the camp and
+they discover that the beast can assume the shape of its victims. A resourceful
+helicopter pilot (Kurt Russell) and the camp doctor (Richard Dysart) lead the
+camp crew in a desperate, gory battle against the vicious creature before it
+picks them all off, one by one.
 
 ## Develop
 
-  $ git clone https://github.com/blipjoy/awitp.git
+  $ git clone https://github.com/sugataa/the-thing.git
 
 Follow me:
 
-* [Blog](http://blog.kodewerx.org/)
-* [@kodewerx](http://twitter.com/kodewerx)
+<TBD>
 
 ### Dependencies
 
