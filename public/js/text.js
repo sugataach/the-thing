@@ -1,4 +1,8 @@
 game.text = {
+    "playerTrust": 100,
+
+    "playerName": "Kurt",
+
     "ignoreWords" : {
         "a"     : true,
         "an"    : true,
@@ -23,6 +27,10 @@ game.text = {
 "light wind is in the trees.  What could possibly go wrong?"
     },
 
+    "name": {
+        "_": [ "Enter your name:" ]
+    },
+
     "play" : {
         "global" : {
             "help" : [
@@ -44,8 +52,10 @@ game.text = {
             ]
         },
 
-/* The Path */
-        "path" : {
+
+        /* The Path */
+        "path"
+         : {
             "go" : {
                 "north" : "tree",
                 "tree"  : "tree",
@@ -55,26 +65,52 @@ game.text = {
 
             "info" : {
                 "_" : [
-"Not a cloud in the sky.  Just beautiful.  The perfect day for a walk.  " +
-"Morning dew is still rolling down fresh blades of grass as you",
-"make your way to the park.  A sparrow sings as it flies overhead, no doubt " +
-"looking for a meal to take back to the nest.  The sun is",
-"bright and warm.  It brings back memories of days at home on the weekends.",
-"",
-"Across the street, some children are blowing bubbles.  They float gently " +
-"and mysteriously, bursting one at a time into tiny droplets",
-"of soap.  Hundreds of tiny bubbles creating a rainbow of illusion.  One " +
-"softly touches down next to a butterfly, which seems to be",
-"content stretching its wings.",
-"",
-"Just ahead, you can see the approaching park gates.  Iron bars, chiefly for " +
-"decoration; they serve no real purpose as you can't see",
-"much of a fence.  Just a two-foot-high railing with posts made of brick.  " +
-"Perhaps it protects the flowerbed from being trampled by",
-"people who wander off the path.",
-"",
-"When you reach the park, a cobblestone path lies before you."
+                "An alarm wakes you up from your slumber \n" +
+                    "a) see what's going on\n" +
+                    "b) Go back to sleep"
                 ]
+            },
+
+            "a": {
+                "info": {
+                    "_": [
+                        "You find Alan Lee, the base pilot suiting up with your scientist co-worker \n" +
+                        "Dr. Johnson and the base medic George Diaz. Alan explains they are going to \n" +
+                        "the nearby America base because they have been out of contact for a little over \n" +
+                        "a month. Dr. Johnson throws you a coat, “You’re coming with us Kurt.” \n" +
+                        "a) Let’s get going \n" +
+                        "b) Shotgun!\n" +
+                        "c) Does Diaz really need to come? Their radio is probably just out.\n" +
+                        "d) Alright geezer.\n"
+                    ]
+                },
+
+
+            },
+
+            "b": {
+                "info": {
+                    "_": [
+                        "The base chef Dylan comes to your door and tells you Dr. Johnson is looking " +
+                        "for you at the front gate.\n" +
+
+                        "a) Better not keep the old man waiting.\n" +
+                        "b) I’ll get on my way.\n" +
+                        "c) Shut up Dylan, I know, I know, I’m going.\n"
+                    ]
+                },
+
+                "a": {
+                    "jump": function() {return game.text.play.path.a;}
+                },
+
+                "b": {
+                    "jump": function() {return game.text.play.path.a;}
+                },
+
+                "c": {
+                    "jump": function() {return game.text.play.path.a;}
+                }
             },
 
             "look" : {
@@ -411,6 +447,11 @@ game.text = {
 
 game.commands = {
     "global" : {
+        "a": "go",
+        "b": "go",
+        "c": "go",
+        "d": "go",
+
         "help"      : "help",
         "cry"       : "help",
 
@@ -441,6 +482,8 @@ game.commands = {
         "have"      : "bag",
         "hand"      : "bag"
     },
+
+    "choices": ["a", "b", "c", "d"],
 
     "local" : {
         "info"      : "info",

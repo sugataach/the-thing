@@ -1,4 +1,8 @@
+//location = null;
+
 game.PlayScreen = game.BaseScreen.extend({
+    location: null,
+
     "bgm" : "milksharks",
 
     "onResetEvent" : function () {
@@ -90,29 +94,18 @@ game.PlayScreen = game.BaseScreen.extend({
 
         // Command parser
         if (this.command) {
-            this.args = this.command.toLowerCase().split(" ");
-            this.args = this.args.filter(function (word) {
-                return !(word in game.text.ignoreWords);
-            }).map(function (word) {
-                // Dumb-transform plural to singular
-                if (word.slice(-1) === "s") {
-                    if (word.slice(-3) === "ies") {
-                        word = word.slice(0, -3) + "y";
-                    }
-                    else {
-                        word = word.slice(0, -1);
-                    }
-                }
+            console.log(this.command);
 
-                // Reserved characters
-                word = word.replace(/_/g, "");
-
-                return word;
-            });
-            this.action = this.args.shift();
+            this.action = this.command.trim().toLowerCase();
 
             this.command = "";
             this.dirty = true;
+
+            console.log(this.action);
+
+            if (this.location == null) {
+                this.location = game.text.play[this.area];
+            }
 
             // Command interpreter
             if (this.action in game.commands.local) {
@@ -139,7 +132,20 @@ game.PlayScreen = game.BaseScreen.extend({
                         this.area = game.text.play[this.area].go[
                             this.args[0] || this.action
                         ] || this.area;
-                        this.lines = game.text.play[this.area].info._;
+                        console.log(game.text.play[this.area].info._);
+
+                        console.log(this.location);
+                        console.log(this.action);
+                        console.log(this.location['a']);
+                        console.log(this.location.a);
+                        this.location = this.location[this.action];
+                        console.log(this.location);
+
+                        if (this.location.hasOwnProperty("jump")) {
+                            this.location = this.location.jump();
+                        }
+
+                        this.lines = this.location.info._;
                         break;
 
                     case "get":
